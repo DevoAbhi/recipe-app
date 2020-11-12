@@ -1,0 +1,16 @@
+button{
+  margin-right: 1rem;
+}
+
+.total {
+  margin-left: 1rem;
+}
+
+.ingre-space{
+  margin-bottom: 5px;
+}
+
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+  border: solid 1px red;
+}
