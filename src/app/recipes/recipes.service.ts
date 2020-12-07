@@ -9,23 +9,29 @@ export class RecipeService{
 
   recipeChanged = new Subject<Recipe[]>();
 
-    private recipes: Recipe[] =[
-        new Recipe('Baigan Ka Bharta', 'nice recipe', 'https://myfoodstory.com/wp-content/uploads/2017/11/Easy-Baingan-Bharta-Smoky-eggplant-stir-fry-3.jpg',
-        [
-            new Ingredient("Egg Plant", 1),
-            new Ingredient('Aalo', 4)
-        ]),
-        new Recipe('Aalo Kumro Ghet', 'darun recipe', 'https://s4.scoopwhoop.com/anj/Bengali_Vegetarian/516861833.jpeg',
-        [
-            new Ingredient("Kumro", 5),
-            new Ingredient("Kochu", 6)
-        ]),
-      ];
+  private recipes: Recipe[] = [];
+
+    // private recipes: Recipe[] =[
+    //     new Recipe('Baigan Ka Bharta', 'nice recipe', 'https://myfoodstory.com/wp-content/uploads/2017/11/Easy-Baingan-Bharta-Smoky-eggplant-stir-fry-3.jpg',
+    //     [
+    //         new Ingredient("Egg Plant", 1),
+    //         new Ingredient('Aalo', 4)
+    //     ]),
+    //     new Recipe('Aalo Kumro Ghet', 'darun recipe', 'https://s4.scoopwhoop.com/anj/Bengali_Vegetarian/516861833.jpeg',
+    //     [
+    //         new Ingredient("Kumro", 5),
+    //         new Ingredient("Kochu", 6)
+    //     ]),
+    //   ];
 
       constructor(private slService : ShoppingListService){
 
       }
 
+      setRecipes(recipes : Recipe[]){
+        this.recipes = recipes;
+        this.recipeChanged.next(this.recipes.slice())
+      }
       getRecipes(){
           return this.recipes.slice();
       }
