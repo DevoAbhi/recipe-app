@@ -20,6 +20,8 @@ export class RecipesResolverService implements Resolve<Recipe[]> {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     let recipes = this.recipeService.getRecipes();
+    // If there are no recipes then this resolve function returns the fetched recipes else
+    // returns all the recipes
     if (recipes.length === 0) {
       return this.dataStorageService.fetchRecipes();
     } else {
