@@ -25,7 +25,7 @@
       </div>
       <div style="padding: 10px">
         <button type="submit" class="btn btn-primary" [disabled]="!authForm.valid">
-          {{ isLoginMode ? "Sign Up" : "Login" }}
+          {{ isLoginMode ? "Login" : "Sign Up"  }}
         </button>
         |
         <button
@@ -33,7 +33,7 @@
           class="btn btn-primary mt-5"
           (click)="SwitchMode()"
         >
-          {{ isLoginMode ? "Switch to Login?" : "Switch to Sign Up?" }}
+          {{ isLoginMode ? "Switch to Sign Up?" : "Switch to Login?" }}
         </button>
       </div>
     </form>
