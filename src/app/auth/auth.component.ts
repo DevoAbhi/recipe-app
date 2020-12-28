@@ -11,28 +11,34 @@ export class AuthComponent {
   constructor(private authService: AuthService) {}
 
   isLoginMode = true;
+  isLoading = false;
+  error: string = null;
+
 
   SwitchMode() {
     this.isLoginMode = !this.isLoginMode;
   }
 
   onSubmit(form: NgForm) {
-    console.log(form)
-    // if (!form.valid) {
-    //   return;
-    // }
+    if (!form.valid) {
+      return;
+    }
     const email = form.value.email;
     const password = form.value.password;
 
+    this.isLoading = true;
     if (this.isLoginMode) {
       ////
     } else {
       this.authService.signup(email, password).subscribe(
         (resData) => {
           console.log(resData);
+          this.isLoading= false;
+          this.error = '';
         },
-        (error) => {
-          console.log(error);
+        (errorMessage) => {
+          this.error = errorMessage;
+          this.isLoading= false;
         }
       );
 
