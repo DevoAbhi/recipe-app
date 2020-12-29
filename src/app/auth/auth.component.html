@@ -5,9 +5,10 @@
 <div class="row" *ngIf="!isLoading">
 
   <div class="col-xs-12 col-s-12 col-md-6 col-l-5">
-    <div class="alert alert-danger" *ngIf="error">
+    <!-- <div class="alert alert-danger" *ngIf="error">
       <p>{{ error }}</p>
-    </div>
+    </div> -->
+    <app-alert [message]="error" *ngIf="error"></app-alert>
     <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
       <div class="form-group">
         <label for="email">E-Mail</label>
