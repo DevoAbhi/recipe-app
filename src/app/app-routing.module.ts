@@ -10,7 +10,6 @@ import { AuthComponent } from './auth/auth.component';
 import { AuthGuardService } from './auth/auth.guard.service';
 
 const appRoutes: Routes = [
-  {path: '*', redirectTo: '/auth'},
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
   {
     path: 'recipes',
