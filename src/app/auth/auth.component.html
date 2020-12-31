@@ -1,14 +1,17 @@
-<div *ngIf="isLoading" style="text-align: center;">
+<div *ngIf="isLoading" style="text-align: center">
   <app-loading-spinner></app-loading-spinner>
 </div>
 
 <div class="row" *ngIf="!isLoading">
-
   <div class="col-xs-12 col-s-12 col-md-6 col-l-5">
     <!-- <div class="alert alert-danger" *ngIf="error">
       <p>{{ error }}</p>
     </div> -->
-    <app-alert [message]="error" *ngIf="error" (close)="onHandleError()"></app-alert>
+    <app-alert
+      [message]="error"
+      *ngIf="error"
+      (close)="onHandleError()"
+    ></app-alert>
     <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
       <div class="form-group">
         <label for="email">E-Mail</label>
@@ -33,8 +36,12 @@
         />
       </div>
       <div style="padding: 10px">
-        <button type="submit" class="btn btn-primary" [disabled]="!authForm.valid">
-          {{ isLoginMode ? "Login" : "Sign Up"  }}
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="!authForm.valid"
+        >
+          {{ isLoginMode ? "Login" : "Sign Up" }}
         </button>
         |
         <button
