@@ -15,6 +15,7 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { AlertComponent } from './shared/alert/alert.component';
 import { RecipeModule } from './recipes/recipe.module';
+import { RecipesRoutingModule } from './recipes/recipes-routing.module';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { RecipeModule } from './recipes/recipe.module';
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    RecipeModule
+    RecipeModule,
+    RecipesRoutingModule
   ],
   providers: [
     ShoppingListService,
